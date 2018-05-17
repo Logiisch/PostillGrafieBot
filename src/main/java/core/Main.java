@@ -4,10 +4,8 @@ import commands.cmdAdd;
 import commands.cmdOnlineInform;
 import java.util.HashMap;
 import javax.security.auth.login.LoginException;
-import listeners.OrthografieListener;
-import listeners.commandListener;
-import listeners.onlineListener;
-import listeners.readyListener;
+
+import listeners.*;
 import net.dv8tion.jda.core.AccountType;
 import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
