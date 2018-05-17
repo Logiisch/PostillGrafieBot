@@ -48,6 +48,7 @@ public class Main
     builder.addEventListener(new readyListener());
     builder.addEventListener(new OrthografieListener());
     builder.addEventListener(new onlineListener());
+    builder.addEventListener(new guildMemberJoinListener());
   }
   
   public static void addCommands() {
