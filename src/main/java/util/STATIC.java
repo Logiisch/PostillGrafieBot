@@ -28,6 +28,7 @@ public class STATIC {
         public static final long POSTILLONARTIKEL_AUFKLAERUNG = 446227161737723905L;
         public static final long FAKTILLON_AUFKLAEREUNG = 446379863671308308L;
         public static final long POSTILLLEAKES_BEI_TWITTER = 446380071679164417L;
+        public static final long WILLKOMMEN = 446374004975075339L;
     }
 
 
