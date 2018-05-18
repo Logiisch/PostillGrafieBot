@@ -19,7 +19,7 @@ public class guildMemberJoinListener extends ListenerAdapter {
 
         event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK).sendMessage(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:").queue(); // ID: 446227161737723905
 
-        Role neueRolle = event.getGuild().getRoleById(446377795900145665L); // "Mitglied" durch "Lügenbaron" ersetzen
+        Role neueRolle = event.getGuild().getRoleById(STATIC.ROLE.LUEGENBARON); // "Mitglied" durch "Lügenbaron" ersetzen
         Member member = event.getMember();
 
         member.getGuild().getController().addRolesToMember(member, neueRolle).queue();
