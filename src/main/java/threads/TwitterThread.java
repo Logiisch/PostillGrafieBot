@@ -4,6 +4,7 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
 import twitter4j.*;
 import twitter4j.conf.ConfigurationBuilder;
+import util.SECRETS;
 
 import java.awt.*;
 import java.util.Date;
@@ -15,10 +16,10 @@ public class TwitterThread implements Runnable {
     static {
         ConfigurationBuilder builder = new ConfigurationBuilder()
                 .setDebugEnabled(true)
-                .setOAuthConsumerKey("")
-                .setOAuthConsumerSecret("")
-                .setOAuthAccessToken("")
-                .setOAuthAccessTokenSecret("");
+                .setOAuthConsumerKey(SECRETS.TWITTER_API_KEY)
+                .setOAuthConsumerSecret(SECRETS.TWITTER_API_SECRET)
+                .setOAuthAccessToken(SECRETS.TWITTER_ACCESS_TOKEN)
+                .setOAuthAccessTokenSecret(SECRETS.TWITTER_ACCESS_TOKEN_SECRET);
         twitter = new TwitterFactory(builder.build()).getInstance();
     }
 
