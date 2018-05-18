@@ -1,6 +1,7 @@
 package core;
 
 import commands.cmdAdd;
+import commands.cmdHelp;
 import commands.cmdOnlineInform;
 import listeners.*;
 import net.dv8tion.jda.core.AccountType;
@@ -25,7 +26,7 @@ public class Main {
         builder.setToken(SECRETS.TOKEN);
         builder.setAutoReconnect(true);
         builder.setStatus(OnlineStatus.ONLINE);
-        String Version = "v" + util.STATIC.VERSION;
+        String Version = "-help || v" + util.STATIC.VERSION;
 
         builder.setGame(Game.of(Game.GameType.DEFAULT, Version));
 
@@ -51,6 +52,7 @@ public class Main {
     public static void addCommands() {
         commandHandler.commands.put("add", new cmdAdd());
         commandHandler.commands.put("online", new cmdOnlineInform());
+        commandHandler.commands.put("help", new cmdHelp());
     }
 
     private static void startThreads(JDA jda) {
