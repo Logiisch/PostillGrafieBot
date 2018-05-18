@@ -57,18 +57,8 @@
             <version>LATEST</version>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-simple</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
-            <groupId>org.brunocvcunha.jiphy</groupId>
-            <artifactId>jiphy</artifactId>
-            <version>LATEST</version>
-        </dependency>
-        <dependency>
             <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+                <artifactId>mysql-connector-java</artifactId>
             <version>LATEST</version>
         </dependency>
         <dependency>
