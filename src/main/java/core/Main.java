@@ -36,6 +36,7 @@ public class Main {
 
         try {
             JDA localJDA = builder.buildBlocking();
+            startThreads(localJDA);
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
         }
