@@ -38,6 +38,7 @@ public class TwitterThread implements Runnable {
     public void run() {
         while (true) {
             try {
+                Thread.sleep(10000);
                 ResponseList<Status> response = twitter.getUserTimeline(userId);
                 for (Status status : response) {
                     if (status.getCreatedAt().after(lastTweet)) {
@@ -47,7 +48,7 @@ public class TwitterThread implements Runnable {
                             sendMessage(status);
                     }
                 }
-                Thread.sleep(60000);
+                Thread.sleep(50000);
             } catch (TwitterException e) {
                 e.printStackTrace();
             } catch (InterruptedException e) {
