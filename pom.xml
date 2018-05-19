@@ -46,6 +46,11 @@
             <artifactId>twitter4j-core</artifactId>
             <version>4.0.4</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.7</version>
+        </dependency>
         <!--
             NEEDED FOR ANOTHER COMMAND NOT IMPLEMENTED YET
         <dependency>
