@@ -36,12 +36,12 @@ public class Main {
         addListeners();
         addCommands();
 
-        /*try {
+        try {
             JDA localJDA = builder.buildBlocking();
             startThreads(localJDA);
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
-        }*/
+        }
     }
 
     public static void addListeners() {

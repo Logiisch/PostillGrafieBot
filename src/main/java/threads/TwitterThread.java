@@ -50,7 +50,7 @@ public class TwitterThread implements Runnable {
                 }
                 Thread.sleep(50000);
             } catch (TwitterException e) {
-                e.printStackTrace();
+                System.err.println("Got TwitterException. Please check network!\n" + e.getMessage());
             } catch (InterruptedException e) {
                 return;
             }

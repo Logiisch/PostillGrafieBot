@@ -51,10 +51,12 @@ public class PostillonNewsThread implements Runnable {
                         }
                     }
                     Thread.sleep(50000);
-                } catch (FeedException | IOException e) {
-                    e.printStackTrace();
+                } catch (FeedException e) {
+                    System.err.println(e.getMessage());
                 } catch (InterruptedException e) {
                     return;
+                } catch (IOException e) {
+                    System.err.println("Got IOExcetion. Please check network!\n" + e.getMessage());
                 }
             }
         }
