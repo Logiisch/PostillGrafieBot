@@ -14,6 +14,8 @@ import threads.TwitterThread;
 import util.SECRETS;
 import util.STATIC;
 
+import com.rometools.rome.io.FeedException;
+
 import javax.security.auth.login.LoginException;
 
 public class Main {
@@ -34,12 +36,12 @@ public class Main {
         addListeners();
         addCommands();
 
-        try {
+        /*try {
             JDA localJDA = builder.buildBlocking();
             startThreads(localJDA);
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     public static void addListeners() {
