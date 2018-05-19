@@ -59,9 +59,6 @@ public class Main {
     }
 
     private static void startThreads(JDA jda) {
-        PostillonNewsThread p = new PostillonNewsThread();
-        p.setChannel(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG));
-        new Thread(p).start();
         new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG), 105554801L, "Neuer Lügentweet!")).start();
         new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.FAKTILLON_AUFKLAEREUNG), 4835416125L, "Neuer Lügenfakt!")).start();
         new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLLEAKES_BEI_TWITTER), 761646243495964672L, "Neuer Aufklärungstweet!")).start();
