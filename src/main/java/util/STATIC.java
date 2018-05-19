@@ -1,7 +1,7 @@
 package util;
 
 public class STATIC {
-    public static String VERSION = "1.1.3";
+    public static String VERSION = "1.1.4";
     public static String PREFIX = "-";
 
     public STATIC() {
