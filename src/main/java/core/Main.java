@@ -16,6 +16,7 @@ import util.SECRETS;
 public class Main
 {
   public Main() {}
+  public static boolean Testlauf = false;
   
   public static JDABuilder builder = new JDABuilder(AccountType.BOT);
   

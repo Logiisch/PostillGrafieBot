@@ -12,7 +12,7 @@ public class readyListener extends net.dv8tion.jda.core.hooks.ListenerAdapter {
     for (Guild g : event.getJDA().getGuilds()) {
       out += g.getName() + "\n";
     }
-
+OrthografieListener.loadFehler(event.getJDA());
 
     System.out.println(out);
     for (Guild g : event.getJDA().getGuilds()) {
