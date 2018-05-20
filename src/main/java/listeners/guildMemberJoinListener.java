@@ -17,15 +17,12 @@ public class guildMemberJoinListener extends ListenerAdapter {
                 "" + event.getUser().getAsMention() + " ist auf dem besten Weg, den Lügen des Postillons zu entkommen. Willkommen!",
                 "" + event.getUser().getAsMention() + " lässt sich ab sofort vom Postillon nicht mehr hinter's Licht führen."
         };
-<<<<<<< HEAD
-       String CMention = event.getGuild().getTextChannelById(446374004975075339L).getAsMention();
-        event.getGuild().getTextChannelById(446227161737723905L).sendMessage(welcome[(int)(Math.random()*welcome.length)] + "\nSchau dich im "+CMention+" Channel um :blush:").queue(); // ID: 446227161737723905
-=======
+
 
         event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK).sendMessage(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:").queue(); // ID: 446227161737723905
 
         Role neueRolle = event.getGuild().getRoleById(STATIC.ROLE.LUEGENBARON);
->>>>>>> a4d295f31e92de0d43c4f97864ab3e9fda736878
+
 
         Member member = event.getMember();
 
