@@ -16,14 +16,8 @@ public class commandListener extends ListenerAdapter {
     String CD = event.getMessage().getContentDisplay().toLowerCase();
 
     if (CD.startsWith(STATIC.PREFIX) && event.getMessage().getAuthor().getId() != event.getJDA().getSelfUser().getId()) {
-     /* if (listeners.commandListener.Blocked.containsKey(event.getAuthor()) ) {
-        if (commandListener.Blocked.get(event.getAuthor()).equalsIgnoreCase(event.getAuthor().getId())) {
-          event.getTextChannel().sendMessage("Du bist aktuell blockiert!").queue();
-          return;
-        }
-      }*/
       try {
-        commandHandler.handleCommand(commandHandler.parser.parse(CD,  event));
+        commandHandler.handleCommand(commandHandler.parser.parse(CD, event), event);
       } catch (IOException e) {
         e.printStackTrace();
       }
