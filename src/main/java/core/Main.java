@@ -20,7 +20,6 @@ import javax.security.auth.login.LoginException;
 
 public class Main {
     public static JDABuilder builder = new JDABuilder(AccountType.BOT);
-    public static boolean Testlauf = true;
     public Main() {
     }
 
@@ -50,6 +49,7 @@ public class Main {
         builder.addEventListener(new OrthografieListener());
         builder.addEventListener(new onlineListener());
         builder.addEventListener(new guildMemberJoinListener());
+        builder.addEventListener(new guildMemberLeaveListener());
     }
 
     public static void addCommands() {

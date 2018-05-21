@@ -1,10 +1,13 @@
 package listeners;
 
+import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.Member;
 import net.dv8tion.jda.core.entities.Role;
 import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import util.STATIC;
+
+import java.awt.*;
 
 public class guildMemberJoinListener extends ListenerAdapter {
 
@@ -19,7 +22,12 @@ public class guildMemberJoinListener extends ListenerAdapter {
         };
 
 
-        event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK).sendMessage(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:").queue(); // ID: 446227161737723905
+        event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK).sendMessage(
+                new EmbedBuilder().setColor(Color.GREEN)
+                .setDescription(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:")
+                .build()
+
+        ).queue();
 
         Role neueRolle = event.getGuild().getRoleById(STATIC.ROLE.LUEGENBARON);
 
