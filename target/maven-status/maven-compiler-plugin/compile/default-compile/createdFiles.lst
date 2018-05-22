@@ -9,6 +9,7 @@ util\SECRETS.class
 core\commandParser.class
 util\STATIC$CHANNEL.class
 threads\TwitterThread.class
+listeners\guildMemberLeaveListener.class
 util\printOutTxtFile.class
 listeners\commandListener.class
 listeners\onlineListener.class

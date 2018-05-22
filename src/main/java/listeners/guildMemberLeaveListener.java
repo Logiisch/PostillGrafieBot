@@ -12,7 +12,7 @@ public class guildMemberLeaveListener extends ListenerAdapter {
 
         event.getGuild().getTextChannelById(446227161737723905L).sendMessage(
                 new EmbedBuilder().setColor(Color.RED)
-                        .setDescription("Der Verräter " + event.getUser().getAsMention() + " hat die Timmy(9)-Befreiungsarmee verlassen!")
+                        .setDescription("Der Verräter " + event.getUser().getName() + " hat die Timmy(9)-Befreiungsarmee verlassen!")
                         .build()
         ).queue();
 
