@@ -11,8 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="Maven: org.json:json:20160810" level="project" />
-    <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: net.dv8tion:JDA:3.6.0_367" level="project" />
     <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
@@ -28,7 +26,8 @@
     <orderEntry type="library" name="Maven: com.rometools:rome:1.9.0" level="project" />
     <orderEntry type="library" name="Maven: com.rometools:rome-utils:1.9.0" level="project" />
     <orderEntry type="library" name="Maven: org.jdom:jdom2:2.0.6" level="project" />
-    <orderEntry type="library" name="Maven: org.twitter4j:twitter4j-core:4.0.4" level="project" />
+    <orderEntry type="library" name="Maven: com.github.scribejava:scribejava-apis:5.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.github.scribejava:scribejava-core:5.4.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-simple:1.7.7" level="project" />
   </component>
 </module>

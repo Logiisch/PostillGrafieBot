@@ -9,12 +9,9 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
-import threads.PostillonNewsThread;
 import threads.TwitterThread;
 import util.SECRETS;
 import util.STATIC;
-
-import com.rometools.rome.io.FeedException;
 
 import javax.security.auth.login.LoginException;
 
@@ -60,9 +57,8 @@ public class Main {
 
 
     private static void startThreads(JDA jda) {
-        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG), 105554801L, "Neuer Lügentweet!")).start();
-        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.FAKTILLON_AUFKLAEREUNG), 4835416125L, "Neuer Lügenfakt!")).start();
-        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLLEAKES_BEI_TWITTER), 761646243495964672L, "Neuer Aufklärungstweet!")).start();
-
+        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG), "Der_Postillon", "Neuer Lügentweet!")).start();
+        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.FAKTILLON_AUFKLAEREUNG), "Faktillon", "Neuer Lügenfakt!")).start();
+        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLLEAKES_BEI_TWITTER), "postillleaks", "Neuer Aufklärungstweet!")).start();
     }
 }
