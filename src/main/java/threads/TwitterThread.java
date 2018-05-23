@@ -60,7 +60,7 @@ public class TwitterThread implements Runnable {
                             media = json.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
                             //TODO: multiple Images
                         }
-                        String user = json.getJSONObject("user").getString("name") + "(@" + json.getJSONObject("user").getString("screen_name") + ")";
+                        String user = json.getJSONObject("user").getString("name") + " (@" + json.getJSONObject("user").getString("screen_name") + ")";
                         String userURL = ParseUtil.getRawString("url", json.getJSONObject("user"));
                         String userImageURL = ParseUtil.getRawString("profile_image_url", json.getJSONObject("user"));
                         String thumb = ParseUtil.getRawString("profile_banner_url", json.getJSONObject("user"));
