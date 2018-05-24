@@ -53,7 +53,7 @@ public class TwitterThread implements Runnable {
                 Date created_at = ParseUtil.getDate("created_at", array.getJSONObject(0));
                 if (created_at.after(lastTweet)) {
                     lastTweet = created_at;
-                    if (json.isNull("in_reply_to_screen_name") || json.getString("in_reply_to_screen_name").equalsIgnoreCase(screenName)) {
+                    if ((json.isNull("in_reply_to_screen_name") || json.getString("in_reply_to_screen_name").equalsIgnoreCase(screenName)) && !json.has("retweeted_status")) {
                         String text = StringEscapeUtils.unescapeHtml4(json.getString("full_text"));
                         String media = null;
                         if (json.getJSONObject("entities").has("media")) {
