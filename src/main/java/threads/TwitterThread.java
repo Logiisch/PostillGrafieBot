@@ -8,6 +8,7 @@ import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
 import org.apache.commons.text.StringEscapeUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import util.ParseUtil;
 import util.SECRETS;
@@ -80,6 +81,8 @@ public class TwitterThread implements Runnable {
                 e.printStackTrace();
             } catch (IOException e) {
                 System.err.println("Got IOException. Please check network!\n" + e.getMessage());
+            } catch (JSONException ignore) {
+
             }
         }
     }
