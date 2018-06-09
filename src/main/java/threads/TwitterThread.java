@@ -48,32 +48,34 @@ public class TwitterThread implements Runnable {
                 service.signRequest(token, request);
                 final Response response = service.execute(request);
 
-                JSONArray array = new JSONArray(response.getBody());
-                JSONObject json = array.getJSONObject(0);
+                if (response != null) {
+                    JSONArray array = new JSONArray(response.getBody());
+                    JSONObject json = array.getJSONObject(0);
 
-                Date created_at = ParseUtil.getDate("created_at", array.getJSONObject(0));
-                if (created_at.after(lastTweet)) {
-                    lastTweet = created_at;
-                    if ((json.isNull("in_reply_to_screen_name") || json.getString("in_reply_to_screen_name").equalsIgnoreCase(screenName)) && !json.has("retweeted_status")) {
-                        String text = StringEscapeUtils.unescapeHtml4(json.getString("full_text"));
-                        String media = null;
-                        if (json.getJSONObject("entities").has("media")) {
-                            media = json.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
-                            //TODO: multiple Images
+                    Date created_at = ParseUtil.getDate("created_at", array.getJSONObject(0));
+                    if (created_at.after(lastTweet)) {
+                        lastTweet = created_at;
+                        if ((json.isNull("in_reply_to_screen_name") || json.getString("in_reply_to_screen_name").equalsIgnoreCase(screenName)) && !json.has("retweeted_status")) {
+                            String text = StringEscapeUtils.unescapeHtml4(json.getString("full_text"));
+                            String media = null;
+                            if (json.getJSONObject("entities").has("media")) {
+                                media = json.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
+                                //TODO: multiple Images
+                            }
+                            String user = json.getJSONObject("user").getString("name") + " (@" + json.getJSONObject("user").getString("screen_name") + ")";
+                            String userURL = ParseUtil.getRawString("url", json.getJSONObject("user"));
+                            String userImageURL = ParseUtil.getRawString("profile_image_url", json.getJSONObject("user"));
+                            String thumb = ParseUtil.getRawString("profile_banner_url", json.getJSONObject("user"));
+
+                            channel.sendMessage(new EmbedBuilder().setColor(new Color(53, 137, 255))
+                                    .setAuthor(user, userURL, userImageURL)
+                                    .setDescription(text)
+                                    .setImage(media)
+                                    .setThumbnail(thumb)
+                                    .setFooter(footer, null).build()).queue();
                         }
-                        String user = json.getJSONObject("user").getString("name") + " (@" + json.getJSONObject("user").getString("screen_name") + ")";
-                        String userURL = ParseUtil.getRawString("url", json.getJSONObject("user"));
-                        String userImageURL = ParseUtil.getRawString("profile_image_url", json.getJSONObject("user"));
-                        String thumb = ParseUtil.getRawString("profile_banner_url", json.getJSONObject("user"));
 
-                        channel.sendMessage(new EmbedBuilder().setColor(new Color(53, 137, 255))
-                                .setAuthor(user, userURL, userImageURL)
-                                .setDescription(text)
-                                .setImage(media)
-                                .setThumbnail(thumb)
-                                .setFooter(footer, null).build()).queue();
                     }
-
                 }
             } catch (InterruptedException e) {
                 return;
