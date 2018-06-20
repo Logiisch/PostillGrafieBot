@@ -48,7 +48,7 @@ public class TwitterThread implements Runnable {
                 service.signRequest(token, request);
                 final Response response = service.execute(request);
 
-                if (response != null) {
+                if (response != null && response.getBody() != null) {
                     JSONArray array = new JSONArray(response.getBody());
                     JSONObject json = array.getJSONObject(0);
 
