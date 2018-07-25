@@ -2,6 +2,7 @@ package threads;
 
 import com.github.scribejava.apis.TwitterApi;
 import com.github.scribejava.core.builder.ServiceBuilder;
+import com.github.scribejava.core.exceptions.OAuthException;
 import com.github.scribejava.core.model.*;
 import com.github.scribejava.core.oauth.OAuth10aService;
 import net.dv8tion.jda.core.EmbedBuilder;
@@ -85,6 +86,8 @@ public class TwitterThread implements Runnable {
                 System.err.println("Got IOException. Please check network!\n" + e.getMessage());
             } catch (JSONException ignore) {
 
+            } catch (OAuthException e) {
+                System.err.println("Got OAuthException. Please check network / configuration!\n" + e.getMessage());
             }
         }
     }
