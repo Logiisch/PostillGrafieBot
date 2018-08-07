@@ -3,7 +3,10 @@ package threads;
 import com.github.scribejava.apis.TwitterApi;
 import com.github.scribejava.core.builder.ServiceBuilder;
 import com.github.scribejava.core.exceptions.OAuthException;
-import com.github.scribejava.core.model.*;
+import com.github.scribejava.core.model.OAuth1AccessToken;
+import com.github.scribejava.core.model.OAuthRequest;
+import com.github.scribejava.core.model.Response;
+import com.github.scribejava.core.model.Verb;
 import com.github.scribejava.core.oauth.OAuth10aService;
 import net.dv8tion.jda.core.EmbedBuilder;
 import net.dv8tion.jda.core.entities.TextChannel;
@@ -58,6 +61,20 @@ public class TwitterThread implements Runnable {
                         lastTweet = created_at;
                         if ((json.isNull("in_reply_to_screen_name") || json.getString("in_reply_to_screen_name").equalsIgnoreCase(screenName)) && !json.has("retweeted_status")) {
                             String text = StringEscapeUtils.unescapeHtml4(json.getString("full_text"));
+                            if (json.getJSONObject("entities").has("user_mentions")) {
+                                JSONArray mentions = json.getJSONObject("entities").getJSONArray("user_mentions");
+                                for (int i = 0; i < mentions.length(); i++) {
+                                    String name = mentions.getJSONObject(i).getString("screen_name");
+                                    text = text.replace("@" + name, String.format("[%s](%s \"%s\")", "@" + name, "https://twitter.com/" + name, name));
+                                }
+                            }
+                            if (json.getJSONObject("entities").has("hashtags")) {
+                                JSONArray hashtags = json.getJSONObject("entities").getJSONArray("hashtags");
+                                for (int i = 0; i < hashtags.length(); i++) {
+                                    String hashtag = hashtags.getJSONObject(i).getString("text");
+                                    text = text.replace("#" + hashtag, String.format("[%s](%s \"%s\")", "#" + hashtag, "https://twitter.com/hashtag/" + hashtag, hashtag));
+                                }
+                            }
                             String media = null;
                             if (json.getJSONObject("entities").has("media")) {
                                 media = json.getJSONObject("entities").getJSONArray("media").getJSONObject(0).getString("media_url_https");
@@ -68,12 +85,14 @@ public class TwitterThread implements Runnable {
                             String userImageURL = ParseUtil.getRawString("profile_image_url", json.getJSONObject("user"));
                             String thumb = ParseUtil.getRawString("profile_banner_url", json.getJSONObject("user"));
 
+
                             channel.sendMessage(new EmbedBuilder().setColor(new Color(53, 137, 255))
-                                    .setAuthor(user, userURL, userImageURL)
+                                    .setAuthor(user, "https://twitter.com/" + screenName, userImageURL)
                                     .setDescription(text)
                                     .setImage(media)
                                     .setThumbnail(thumb)
                                     .setFooter(footer, null).build()).queue();
+
                         }
 
                     }
