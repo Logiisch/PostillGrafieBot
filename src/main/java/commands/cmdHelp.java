@@ -21,7 +21,7 @@ public class cmdHelp implements Command {
             message.setColor(Color.CYAN).setTitle("Befehle")
                     .addField("-help", "``-help: zeigt diese Hilfe an``", false)
                     .addField("-add", "``-add [Falsche Schreibweise]: Fügt einen Vorschlag für eine falsche Schreibweise der Wörter 'Postillon', 'Postillleaks' und 'Faktillon' hinzu``", false)
-                    .addField("-online", "``-online: Aktiviert / deaktiviert Direktnachrichten an den User, wenn der Wahrheitsgeneral seinen Status auf 'online' und 'offline' ändern``", false)
+                    .addField("-online", "``-online: Aktiviert / deaktiviert Direktnachrichten an den User, wenn der Wahrheitsgeneral seinen Status auf 'online' und 'offline' ändert``", false)
             .build())
         .queue();
         message.clear();
