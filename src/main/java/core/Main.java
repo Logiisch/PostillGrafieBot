@@ -9,7 +9,6 @@ import net.dv8tion.jda.core.JDA;
 import net.dv8tion.jda.core.JDABuilder;
 import net.dv8tion.jda.core.OnlineStatus;
 import net.dv8tion.jda.core.entities.Game;
-import threads.TwitterThread;
 import util.SECRETS;
 import util.STATIC;
 
@@ -57,8 +56,9 @@ public class Main {
 
 
     private static void startThreads(JDA jda) {
-        new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG), "Der_Postillon", "Neuer Lügentweet!"), "Postillon-Twitter-Thread").start();
+        /*new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLONARTIKEL_AUFKLAERUNG), "Der_Postillon", "Neuer Lügentweet!"), "Postillon-Twitter-Thread").start();
         new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.FAKTILLON_AUFKLAEREUNG), "Faktillon", "Neuer Lügenfakt!"), "Faktillon-Twitter-Thread").start();
         new Thread(new TwitterThread(jda.getTextChannelById(STATIC.CHANNEL.POSTILLLEAKES_BEI_TWITTER), "postillleaks", "Neuer Aufklärungstweet!"), "Postillleaks-Twitter-Thread").start();
+         */
     }
 }
