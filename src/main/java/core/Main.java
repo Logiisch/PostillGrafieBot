@@ -4,11 +4,11 @@ import commands.cmdAdd;
 import commands.cmdHelp;
 import commands.cmdOnlineInform;
 import listeners.*;
-import net.dv8tion.jda.core.AccountType;
-import net.dv8tion.jda.core.JDA;
-import net.dv8tion.jda.core.JDABuilder;
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.entities.Game;
+import net.dv8tion.jda.api.AccountType;
+import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import threads.TwitterThread;
 import util.SECRETS;
 import util.STATIC;
@@ -26,14 +26,15 @@ public class Main {
         builder.setStatus(OnlineStatus.ONLINE);
         String Version = "-help || v" + util.STATIC.VERSION;
 
-        builder.setGame(Game.of(Game.GameType.DEFAULT, Version));
+        builder.setActivity(Activity.of(Activity.ActivityType.DEFAULT, Version));
 
 
         addListeners();
         addCommands();
 
         try {
-            JDA localJDA = builder.buildBlocking();
+            JDA localJDA = builder.build();
+            localJDA.awaitReady();
             startThreads(localJDA);
         } catch (LoginException | InterruptedException e) {
             e.printStackTrace();
@@ -41,12 +42,12 @@ public class Main {
     }
 
     public static void addListeners() {
-        builder.addEventListener(new commandListener());
-        builder.addEventListener(new readyListener());
-        builder.addEventListener(new OrthografieListener());
-        builder.addEventListener(new onlineListener());
-        builder.addEventListener(new guildMemberJoinListener());
-        builder.addEventListener(new guildMemberLeaveListener());
+        builder.addEventListeners(new commandListener());
+        builder.addEventListeners(new readyListener());
+        builder.addEventListeners(new OrthografieListener());
+        builder.addEventListeners(new onlineListener());
+        builder.addEventListeners(new guildMemberJoinListener());
+        builder.addEventListeners(new guildMemberLeaveListener());
     }
 
     public static void addCommands() {

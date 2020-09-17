@@ -1,0 +1,26 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="bot_post:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/bot_post_jar</output-path>
+    <root id="archive" name="PosGraBot.jar">
+      <element id="module-output" name="PosGraBot" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.7" />
+      <element id="library" level="project" name="Maven: net.dv8tion:JDA:3.6.0_367" />
+      <element id="library" level="project" name="Maven: com.google.code.findbugs:jsr305:3.0.2" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.25" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-collections4:4.1" />
+      <element id="library" level="project" name="Maven: net.sf.trove4j:trove4j:3.0.3" />
+      <element id="library" level="project" name="Maven: net.java.dev.jna:jna:4.4.0" />
+      <element id="library" level="project" name="Maven: com.neovisionaries:nv-websocket-client:2.2" />
+      <element id="library" level="project" name="Maven: com.squareup.okhttp3:okhttp:3.8.1" />
+      <element id="library" level="project" name="Maven: com.squareup.okio:okio:1.13.0" />
+      <element id="library" level="project" name="Maven: org.apache.commons:commons-text:1.3" />
+      <element id="library" level="project" name="Maven: com.rometools:rome:1.9.0" />
+      <element id="library" level="project" name="Maven: com.rometools:rome-utils:1.9.0" />
+      <element id="library" level="project" name="Maven: org.jdom:jdom2:2.0.6" />
+      <element id="library" level="project" name="Maven: com.github.scribejava:scribejava-apis:5.4.0" />
+      <element id="library" level="project" name="Maven: com.github.scribejava:scribejava-core:5.4.0" />
+      <element id="library" level="project" name="Maven: org.json:json:20160810" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.7" />
+    </root>
+  </artifact>
+</component>

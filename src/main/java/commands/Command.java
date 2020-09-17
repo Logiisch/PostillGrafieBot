@@ -1,7 +1,8 @@
 package commands;
 
+import net.dv8tion.jda.api.events.message.MessageReceivedEvent;
+
 import java.io.IOException;
-import net.dv8tion.jda.core.events.message.MessageReceivedEvent;
 
 public abstract interface Command
 {

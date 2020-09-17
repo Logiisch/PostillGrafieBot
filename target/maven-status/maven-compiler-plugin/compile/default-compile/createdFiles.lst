@@ -11,6 +11,7 @@ util\STATIC$CHANNEL.class
 threads\TwitterThread.class
 listeners\guildMemberLeaveListener.class
 util\printOutTxtFile.class
+util\ParseUtil.class
 listeners\commandListener.class
 listeners\onlineListener.class
 core\commandParser$commandContainer.class

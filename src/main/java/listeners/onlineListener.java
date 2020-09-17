@@ -1,13 +1,10 @@
 package listeners;
 
-import net.dv8tion.jda.core.OnlineStatus;
-import net.dv8tion.jda.core.entities.PrivateChannel;
-import net.dv8tion.jda.core.entities.User;
-import net.dv8tion.jda.core.events.user.update.UserUpdateOnlineStatusEvent;
+import net.dv8tion.jda.api.events.user.update.UserUpdateOnlineStatusEvent;
 
 import java.util.ArrayList;
 
-public class onlineListener extends net.dv8tion.jda.core.hooks.ListenerAdapter
+public class onlineListener extends net.dv8tion.jda.api.hooks.ListenerAdapter
 {
   public onlineListener() {}
   

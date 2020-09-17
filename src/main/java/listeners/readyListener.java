@@ -1,16 +1,15 @@
 package listeners;
 
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Guild;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Guild;
 
 import java.awt.*;
 import java.util.Date;
-import java.util.Iterator;
 
-public class readyListener extends net.dv8tion.jda.core.hooks.ListenerAdapter {
+public class readyListener extends net.dv8tion.jda.api.hooks.ListenerAdapter {
   public readyListener() {}
   
-  public void onReady(net.dv8tion.jda.core.events.ReadyEvent event) {
+  public void onReady(net.dv8tion.jda.api.events.ReadyEvent event) {
     String out = "\nDer Bot läuft aktuell hier:\n";
     for (Guild g : event.getJDA().getGuilds()) {
       out += g.getName() + "\n";

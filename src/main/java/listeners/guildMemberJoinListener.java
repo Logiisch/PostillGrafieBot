@@ -1,13 +1,14 @@
 package listeners;
 
-import net.dv8tion.jda.core.EmbedBuilder;
-import net.dv8tion.jda.core.entities.Member;
-import net.dv8tion.jda.core.entities.Role;
-import net.dv8tion.jda.core.events.guild.member.GuildMemberJoinEvent;
-import net.dv8tion.jda.core.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
+import net.dv8tion.jda.api.events.guild.member.GuildMemberJoinEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import util.STATIC;
 
 import java.awt.*;
+import java.util.Objects;
 
 public class guildMemberJoinListener extends ListenerAdapter {
 
@@ -22,19 +23,25 @@ public class guildMemberJoinListener extends ListenerAdapter {
         };
 
 
-        event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK).sendMessage(
-                new EmbedBuilder().setColor(Color.GREEN)
-                .setDescription(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:")
-                .build()
+        try {
+            Objects.requireNonNull(event.getGuild().getTextChannelById(STATIC.CHANNEL.SMALLTALK)).sendMessage(
+                    new EmbedBuilder().setColor(Color.GREEN)
+                    .setDescription(welcome[(int) (Math.random() * welcome.length)] + "\nSchau dich im <#" + STATIC.CHANNEL.WILLKOMMEN + "> Channel um :blush:")
+                    .build()
 
-        ).queue();
+            ).queue();
+        } catch (NullPointerException e) {
+            System.err.println("Smalltalk channel not found.");
+        }
 
         Role neueRolle = event.getGuild().getRoleById(STATIC.ROLE.LUEGENBARON);
 
-
         Member member = event.getMember();
-
-        member.getGuild().getController().addRolesToMember(member, neueRolle).queue();
+        try {
+            member.getGuild().addRoleToMember(member, Objects.requireNonNull(neueRolle)).queue();
+        } catch (NullPointerException e) {
+            System.err.println("Role LUEGENBARON not found.");
+        }
     }
 
 }
